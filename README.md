@@ -2,7 +2,7 @@
 
 A cinematic, editorial website for TRIO, a media and creative studio working
 across **film, music, and photography**. Built with React, Vite, Tailwind CSS,
-and Framer Motion.
+and Framer Motion.     s
 
 The real TRIO logo, colors, and a few starter photos (the "Sur, Shabd aur
 Shakhsiyat" flyer photo, and portraits of your three Custodians) are already
