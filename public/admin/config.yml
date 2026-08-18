@@ -36,7 +36,7 @@ collections:
         name: "gallery"
         widget: "list"
         required: false
-        field:
+        fields:
           - { label: "Photo", name: "src", widget: "image" }
           - { label: "Caption (optional)", name: "caption", widget: "string", required: false }
       - { label: "Video Embed URL (optional, e.g. https://www.youtube.com/embed/VIDEO_ID)", name: "video", widget: "string", required: false }
@@ -100,7 +100,7 @@ collections:
           - label: "Photos"
             name: "images"
             widget: "list"
-            field:
+            fields:
               - { label: "Photo", name: "src", widget: "image" }
               - { label: "Caption (optional, e.g. 'With Javed Akhtar')", name: "caption", widget: "string", required: false }
 
@@ -114,7 +114,7 @@ collections:
           - label: "Photos"
             name: "images"
             widget: "list"
-            field:
+            fields:
               - { label: "Photo", name: "src", widget: "image" }
               - { label: "Caption (optional)", name: "caption", widget: "string", required: false }
 
