@@ -1,4 +1,6 @@
 import { socials } from "../data/config.js";
+import { settings } from "../data/images.js";
+import { toEmbedUrl } from "../utils/youtube.js";
 import RevealOnScroll from "./RevealOnScroll.jsx";
 
 function YouTubeIcon({ className = "" }) {
@@ -14,26 +16,57 @@ function YouTubeIcon({ className = "" }) {
 }
 
 export default function YoutubeCTA() {
+  const embedUrl = toEmbedUrl(settings?.latestVideoUrl);
+
   return (
     <section className="bg-ink-soft px-6 py-20 lg:px-10">
-      <RevealOnScroll className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 border border-ink-line p-8 sm:p-12 md:flex-row md:items-center">
-        <div>
-          <p className="eyebrow text-brass">On YouTube</p>
-          <h2 className="font-display mt-3 max-w-lg text-3xl leading-tight text-bone sm:text-4xl">
-            Sessions, sit-downs, and full event recaps — before anywhere
-            else.
-          </h2>
-        </div>
-        <a
-          href={socials.youtube}
-          target="_blank"
-          rel="noreferrer"
-          className="group flex shrink-0 items-center gap-4 bg-brass px-8 py-5 text-ink transition-transform duration-300 ease-cinematic hover:scale-[1.03]"
-        >
-          <YouTubeIcon className="h-7 w-10" />
-          <span className="eyebrow text-base">Watch on YouTube</span>
-        </a>
-      </RevealOnScroll>
+      <div className="mx-auto max-w-7xl">
+        <RevealOnScroll className="relative flex flex-col items-start justify-between gap-8 overflow-hidden border-2 border-brass/60 p-8 shadow-[0_0_60px_-15px_rgba(199,161,90,0.35)] sm:p-12 md:flex-row md:items-center">
+          {/* subtle glow accent */}
+          <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-brass/10 blur-3xl" />
+
+          <div className="relative">
+            <p className="eyebrow flex items-center gap-2 text-brass">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brass opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-brass" />
+              </span>
+              On YouTube
+            </p>
+            <h2 className="font-display mt-3 max-w-lg text-3xl leading-tight text-bone sm:text-4xl">
+              Sessions, sit-downs, and full event recaps — before anywhere
+              else.
+            </h2>
+          </div>
+          <a
+            href={socials.youtube}
+            target="_blank"
+            rel="noreferrer"
+            className="group relative flex shrink-0 items-center gap-4 bg-brass px-8 py-5 text-ink transition-transform duration-300 ease-cinematic hover:scale-[1.05]"
+          >
+            <YouTubeIcon className="h-7 w-10" />
+            <span className="eyebrow text-base">Watch on YouTube</span>
+          </a>
+        </RevealOnScroll>
+
+        {/* Latest video — editable via the dashboard (Settings). Only
+            renders once a video URL has been set. */}
+        {embedUrl && (
+          <RevealOnScroll delay={0.08} className="mt-8">
+            <p className="eyebrow mb-4 text-bone/50">Latest Upload</p>
+            <div className="aspect-video w-full overflow-hidden border border-ink-line bg-ink">
+              <iframe
+                src={embedUrl}
+                title="Latest TRIO video"
+                className="h-full w-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                loading="lazy"
+              />
+            </div>
+          </RevealOnScroll>
+        )}
+      </div>
     </section>
   );
 }

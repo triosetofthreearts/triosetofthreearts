@@ -6,6 +6,11 @@ import { contact, socials } from "../data/config.js";
 const links = [
   { to: "/", label: "Home" },
   { to: "/events", label: "Events" },
+  { to: "/live", label: "Live" },
+  { to: "/updates", label: "What's New" },
+  { to: "/gallery", label: "Gallery" },
+  { to: "/blog", label: "Blog" },
+  { to: "/testimonials", label: "Testimonials" },
   { to: "/team", label: "Our Team" },
   { to: "/about", label: "About Us" },
 ];

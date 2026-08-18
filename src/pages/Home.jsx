@@ -1,5 +1,6 @@
 import Hero from "../components/Hero.jsx";
 import YoutubeCTA from "../components/YoutubeCTA.jsx";
+import UpdatesPreview from "../components/UpdatesPreview.jsx";
 import EventsPreview from "../components/EventsPreview.jsx";
 import Upcoming from "../components/Upcoming.jsx";
 import Team from "../components/Team.jsx";
@@ -17,6 +18,8 @@ export default function Home() {
       <div id="story-start" />
 
       <YoutubeCTA />
+
+      <UpdatesPreview />
 
       <EventsPreview />
 

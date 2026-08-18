@@ -1,0 +1,137 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Where uploaded images get saved, and how the site references them.
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "events"
+    label: "🎫 Events"
+    folder: "content/events"
+    create: true
+    slug: "{{fields.id}}"
+    identifier_field: name
+    summary: "{{name}} — {{dateLabel}}"
+    fields:
+      - { label: "Event ID (no spaces, e.g. sur-shabd-aur-shakhsiyat)", name: "id", widget: "string" }
+      - { label: "Event Name", name: "name", widget: "string" }
+      - { label: "Category (e.g. Music & Conversation)", name: "discipline", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Date Label (shown on site, e.g. 12 September 2026 · Saturday · 6 PM Onwards)", name: "dateLabel", widget: "string" }
+      - { label: "Venue / Location", name: "location", widget: "string" }
+      - { label: "Presented By (optional)", name: "presentedBy", widget: "string", required: false }
+      - { label: "Short Tagline (shown on event cards)", name: "tagline", widget: "text" }
+      - { label: "Full Description (shown on event page)", name: "description", widget: "text" }
+      - label: "Highlights"
+        name: "highlights"
+        widget: "list"
+        field: { label: "Highlight", name: "highlight", widget: "string" }
+      - { label: "External Link (tickets/details, optional)", name: "externalLink", widget: "string", required: false }
+      - { label: "Show this event on the homepage?", name: "featured", widget: "boolean", default: true }
+      - { label: "Cover Image (shown on cards + top of event page)", name: "cover", widget: "image" }
+      - { label: "Full Poster (shown uncropped on the event page)", name: "poster", widget: "image", required: false }
+      - label: "Gallery"
+        name: "gallery"
+        widget: "list"
+        required: false
+        field:
+          - { label: "Photo", name: "src", widget: "image" }
+          - { label: "Caption (optional)", name: "caption", widget: "string", required: false }
+      - { label: "Video Embed URL (optional, e.g. https://www.youtube.com/embed/VIDEO_ID)", name: "video", widget: "string", required: false }
+
+  - name: "updates"
+    label: "📣 What's New"
+    folder: "content/updates"
+    create: true
+    slug: "{{fields.id}}"
+    identifier_field: title
+    summary: "{{title}} — {{date}}"
+    fields:
+      - { label: "Update ID (no spaces, e.g. lovestruck-first-song)", name: "id", widget: "string" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Category (e.g. Music Release, Announcement, Collaboration)", name: "category", widget: "string" }
+      - { label: "Presented By (optional)", name: "presentedBy", widget: "string", required: false }
+      - { label: "Short Summary (shown on cards)", name: "summary", widget: "text" }
+      - { label: "Full Description (shown on the update's own page)", name: "description", widget: "text" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Link (optional — e.g. link to watch/listen)", name: "link", widget: "string", required: false }
+      - { label: "Link Button Label (optional, e.g. 'Watch on Shemaroo')", name: "linkLabel", widget: "string", required: false }
+
+  - name: "testimonials"
+    label: "💬 Testimonials"
+    folder: "content/testimonials"
+    create: true
+    slug: "{{fields.id}}"
+    identifier_field: name
+    summary: "{{name}} — {{role}}"
+    fields:
+      - { label: "ID (no spaces, e.g. john-doe)", name: "id", widget: "string" }
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Role / Organization (optional)", name: "role", widget: "string", required: false }
+      - { label: "Quote", name: "quote", widget: "text" }
+      - { label: "Photo (optional)", name: "photo", widget: "image", required: false }
+
+  - name: "blog"
+    label: "✍️ Blog"
+    folder: "content/blog"
+    create: true
+    slug: "{{fields.id}}"
+    identifier_field: title
+    summary: "{{title}} — {{date}}"
+    fields:
+      - { label: "Post ID / URL slug (no spaces, e.g. behind-the-scenes-lovestruck)", name: "id", widget: "string" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Author (optional)", name: "author", widget: "string", required: false, default: "Sheeba Lateef" }
+      - { label: "Short Excerpt (shown on the blog list)", name: "excerpt", widget: "text", required: false }
+      - { label: "Cover Image (optional)", name: "cover", widget: "image", required: false }
+      - { label: "Post Body", name: "body", widget: "markdown" }
+
+  - name: "gallery"
+    label: "🖼️ Homepage Gallery"
+    files:
+      - name: "studio_gallery"
+        label: "Currently In The Studio (homepage strip)"
+        file: "content/gallery.json"
+        fields:
+          - label: "Photos"
+            name: "images"
+            widget: "list"
+            field:
+              - { label: "Photo", name: "src", widget: "image" }
+              - { label: "Caption (optional, e.g. 'With Javed Akhtar')", name: "caption", widget: "string", required: false }
+
+  - name: "site_gallery"
+    label: "🖼️ Full Gallery Page"
+    files:
+      - name: "site_gallery"
+        label: "Gallery Page Photos"
+        file: "content/site-gallery.json"
+        fields:
+          - label: "Photos"
+            name: "images"
+            widget: "list"
+            field:
+              - { label: "Photo", name: "src", widget: "image" }
+              - { label: "Caption (optional)", name: "caption", widget: "string", required: false }
+
+  - name: "settings"
+    label: "⚙️ Site Settings"
+    files:
+      - name: "site_settings"
+        label: "General Settings"
+        file: "content/settings/site.json"
+        fields:
+          - label: "Latest YouTube Video URL"
+            name: "latestVideoUrl"
+            widget: "string"
+            required: false
+            hint: "Paste the full YouTube link (e.g. https://www.youtube.com/watch?v=XXXXXXXX). Shows as an embedded player on the homepage. Leave blank to hide it."
+          - label: "Live Stream URL"
+            name: "liveStreamUrl"
+            widget: "string"
+            required: false
+            hint: "Paste the full YouTube live link ONLY while you're actually live. This shows the 'LIVE NOW' player on the /live page. Clear it (delete the text and save) once the stream ends."

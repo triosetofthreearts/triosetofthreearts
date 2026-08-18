@@ -2,10 +2,8 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import SmartImage from "./SmartImage.jsx";
 import RegisterModal from "./RegisterModal.jsx";
-import { eventImages } from "../data/images.js";
 
 export default function EventCard({ event, index = 0 }) {
-  const images = eventImages[event.id] || {};
   const reversed = index % 2 === 1;
   const [registerOpen, setRegisterOpen] = useState(false);
 
@@ -20,7 +18,7 @@ export default function EventCard({ event, index = 0 }) {
         className={`group md:col-span-7 ${reversed ? "md:order-2" : "md:order-1"}`}
       >
         <SmartImage
-          src={images.cover}
+          src={event.cover}
           alt={event.name}
           className="aspect-[4/3] w-full"
           imgClassName="object-top transition-transform duration-[1400ms] ease-cinematic group-hover:scale-[1.06]"

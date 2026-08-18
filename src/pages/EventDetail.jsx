@@ -1,7 +1,7 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import { useState } from "react";
 import { getEventById, events } from "../data/events.js";
-import { eventImages, hasImage } from "../data/images.js";
+import { hasImage } from "../data/images.js";
 import SmartImage from "../components/SmartImage.jsx";
 import Gallery from "../components/Gallery.jsx";
 import RevealOnScroll from "../components/RevealOnScroll.jsx";
@@ -15,7 +15,6 @@ export default function EventDetail() {
 
   if (!event) return <Navigate to="/events" replace />;
 
-  const images = eventImages[event.id] || {};
   const others = events.filter((e) => e.id !== event.id).slice(0, 2);
 
   return (
@@ -23,7 +22,7 @@ export default function EventDetail() {
       {/* Hero */}
       <section className="relative flex h-[80vh] min-h-[520px] w-full items-end overflow-hidden bg-ink">
         <SmartImage
-          src={images.cover}
+          src={event.cover}
           alt={event.name}
           className="absolute inset-0 h-full w-full"
           imgClassName="object-top"
@@ -104,7 +103,7 @@ export default function EventDetail() {
       </section>
 
       {/* Official poster — shown full-frame, uncropped */}
-      {hasImage(images.poster) && (
+      {hasImage(event.poster) && (
         <section className="border-t border-ink-line bg-ink-soft px-6 py-24 lg:px-10">
           <div className="mx-auto max-w-7xl">
             <RevealOnScroll className="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
@@ -115,7 +114,7 @@ export default function EventDetail() {
                 </h2>
               </div>
               <a
-                href={images.poster}
+                href={event.poster}
                 target="_blank"
                 rel="noreferrer"
                 className="eyebrow shrink-0 border-b border-bone/30 pb-1 text-bone/80 transition-colors duration-300 hover:border-brass hover:text-brass"
@@ -125,13 +124,13 @@ export default function EventDetail() {
             </RevealOnScroll>
             <RevealOnScroll delay={0.08}>
               <a
-                href={images.poster}
+                href={event.poster}
                 target="_blank"
                 rel="noreferrer"
                 className="mx-auto flex max-w-md items-center justify-center overflow-hidden border border-ink-line bg-ink sm:max-w-sm"
               >
                 <img
-                  src={images.poster}
+                  src={event.poster}
                   alt={`${event.name} — official event poster`}
                   className="h-auto w-full object-contain"
                   loading="lazy"
@@ -144,14 +143,14 @@ export default function EventDetail() {
       )}
 
       {/* Video */}
-      {hasImage(images.video) && (
+      {hasImage(event.video) && (
         <section className="bg-ink px-6 pb-24 lg:px-10">
           <div className="mx-auto max-w-7xl">
             <RevealOnScroll>
               <p className="eyebrow mb-6 text-bone/50">Watch</p>
               <div className="aspect-video w-full overflow-hidden bg-ink-soft">
                 <iframe
-                  src={images.video}
+                  src={event.video}
                   title={`${event.name} video`}
                   className="h-full w-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -172,7 +171,7 @@ export default function EventDetail() {
               From the room.
             </h2>
           </RevealOnScroll>
-          <Gallery images={images.gallery || []} eventName={event.name} />
+          <Gallery images={event.gallery || []} eventName={event.name} />
         </div>
       </section>
 
@@ -188,7 +187,7 @@ export default function EventDetail() {
                 <RevealOnScroll key={e.id}>
                   <Link to={`/events/${e.id}`} className="group block">
                     <SmartImage
-                      src={eventImages[e.id]?.cover}
+                      src={e.cover}
                       alt={e.name}
                       className="aspect-[16/10] w-full"
                       imgClassName="transition-transform duration-[1200ms] ease-cinematic group-hover:scale-[1.05]"
