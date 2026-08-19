@@ -1,6 +1,9 @@
 backend:
   name: git-gateway
+  repo: triosetofthreearts/triosetofthreearts
   branch: main
+  identity_url: https://auth.decapbridge.com/sites/0edbf642-86ba-4281-a38a-a208188d7427
+  gateway_url: https://gateway.decapbridge.com
 
 # Where uploaded images get saved, and how the site references them.
 media_folder: "public/images/uploads"
