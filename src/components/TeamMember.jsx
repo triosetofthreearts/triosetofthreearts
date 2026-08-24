@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SmartImage from "./SmartImage.jsx";
-import { teamImages } from "../data/images.js";
 
 export default function TeamMember({ member }) {
   const [open, setOpen] = useState(false);
@@ -14,7 +13,7 @@ export default function TeamMember({ member }) {
         aria-haspopup="dialog"
       >
         <SmartImage
-          src={teamImages[member.id]}
+          src={member.photo}
           alt={member.name}
           className="aspect-[3/4] w-full"
           imgClassName="grayscale-[35%] transition-all duration-[1200ms] ease-cinematic group-hover:scale-[1.07] group-hover:grayscale-0"
@@ -50,7 +49,7 @@ export default function TeamMember({ member }) {
               className="grid max-w-3xl gap-8 sm:grid-cols-2"
             >
               <SmartImage
-                src={teamImages[member.id]}
+                src={member.photo}
                 alt={member.name}
                 className="aspect-[3/4] w-full"
               />

@@ -1,47 +1,35 @@
 // ============================================================================
 // TRIO — IMAGE & CONTENT CONFIGURATION
 // ----------------------------------------------------------------------------
-// Event images live directly inside each event's JSON file in
-// /content/events/ (see data/events.js) — editable via the /admin dashboard.
+// Nearly everything image-related is now dashboard-editable:
+//  - Events: /content/events/*.json (see data/events.js)
+//  - Team portraits + bios: /content/team/*.json (see data/team.js)
+//  - What's New, Testimonials, Blog: see data/updates.js, testimonials.js, blog.js
+//  - Homepage hero/about/story imagery: /content/settings/site-images.json
+//  - Homepage studio gallery: /content/gallery.json
+//  - Full gallery page: /content/site-gallery.json
+//  - Latest video / live stream link: /content/settings/site.json
 //
-// Updates, testimonials, blog posts, the site gallery, homepage studio
-// gallery, and site settings (latest video, live stream link) are all
-// dashboard-editable too — see data/updates.js, data/testimonials.js,
-// data/blog.js.
-//
-// Team portraits and core brand/site imagery below are not part of the
-// dashboard (out of scope for now) — swap them by replacing the files in
-// src/assets and re-deploying, same as before.
+// Only the TRIO logo mark itself stays a static code asset (it doesn't
+// change) — swap it by replacing src/assets/trio-logo.png and redeploying.
 // ============================================================================
 
 import trioLogo from "../assets/trio-logo.png";
-import sabriPerformance from "../assets/sabri_brothers_performance.jpg";
-import kashifRaza from "../assets/kashif_raza.jpg";
-import sheebaLateef from "../assets/sheeba_lateef.jpg";
-import altamashAbbas from "../assets/altamash_abbas.jpg";
-import eventCandid1 from "../assets/studio/event_candid_1.jpg";
-import studioTeamGroup from "../assets/studio/studio_team_group.jpg";
 
 import gallery from "../../content/gallery.json";
 import siteGallery from "../../content/site-gallery.json";
 import siteSettings from "../../content/settings/site.json";
+import siteImagesContent from "../../content/settings/site-images.json";
 
 export const brand = {
   logo: trioLogo,
 };
 
-export const siteImages = {
-  hero: sabriPerformance,
-  aboutPrimary: sabriPerformance,
-  aboutSecondary: eventCandid1,
-  storyBreak: studioTeamGroup,
-};
-
-export const teamImages = {
-  "kashif-raza": kashifRaza,
-  "sheeba-lateef": sheebaLateef,
-  "altamash-abbas": altamashAbbas,
-};
+// ----------------------------------------------------------------------------
+// HERO / ABOUT / STORY IMAGERY — dashboard-editable
+// Pulled from /content/settings/site-images.json, managed via /admin.
+// ----------------------------------------------------------------------------
+export const siteImages = siteImagesContent;
 
 // ----------------------------------------------------------------------------
 // STUDIO / BEHIND-THE-SCENES GALLERY (homepage strip) — dashboard-editable

@@ -146,6 +146,34 @@ collections:
               - { label: "Photo", name: "src", widget: "image" }
               - { label: "Caption (optional)", name: "caption", widget: "string", required: false }
 
+  - name: "team"
+    label: "👥 Team"
+    folder: "content/team"
+    create: true
+    slug: "{{fields.id}}"
+    identifier_field: name
+    summary: "{{name}} — {{role}}"
+    fields:
+      - { label: "ID (no spaces, e.g. jane-doe)", name: "id", widget: "string" }
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Role / Title", name: "role", widget: "string" }
+      - { label: "Discipline (e.g. Music, Film, Custodian)", name: "discipline", widget: "string" }
+      - { label: "Bio", name: "bio", widget: "text" }
+      - { label: "Photo", name: "photo", widget: "image" }
+      - { label: "Display Order (lower numbers show first)", name: "order", widget: "number", default: 99 }
+
+  - name: "site_images"
+    label: "🌅 Homepage & About Imagery"
+    files:
+      - name: "site_images"
+        label: "Homepage & About Imagery"
+        file: "content/settings/site-images.json"
+        fields:
+          - { label: "Hero Image (big homepage banner photo)", name: "hero", widget: "image" }
+          - { label: "About — Primary Photo", name: "aboutPrimary", widget: "image" }
+          - { label: "About — Secondary Photo", name: "aboutSecondary", widget: "image" }
+          - { label: "Story Break Photo (full-width photo between sections)", name: "storyBreak", widget: "image" }
+
   - name: "settings"
     label: "⚙️ Site Settings"
     files:

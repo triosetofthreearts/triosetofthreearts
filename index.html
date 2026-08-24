@@ -3,8 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TRIO — Stories. People. Moments.</title>
-    <meta name="description" content="TRIO is a media and creative organization telling stories through people, events, and visuals." />
+
+    <title>TRIO — Set of Three Arts | Media, Events & Music, Mumbai</title>
+    <meta
+      name="description"
+      content="TRIO — Set of Three Arts is a Mumbai-based media production and creative agency across Media & Events, Music & Sound, and Literary & Arts Fest. See our upcoming events, releases, and behind-the-scenes work."
+    />
+    <link rel="canonical" href="https://triosetofthreearts.com/" />
+
+    <!-- Open Graph (Facebook, WhatsApp, LinkedIn link previews) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="TRIO — Set of Three Arts" />
+    <meta property="og:title" content="TRIO — Set of Three Arts" />
+    <meta
+      property="og:description"
+      content="A Mumbai-based media production and creative agency across Media & Events, Music & Sound, and Literary & Arts Fest."
+    />
+    <meta property="og:url" content="https://triosetofthreearts.com/" />
+    <meta property="og:image" content="https://triosetofthreearts.com/images/logo/trio-logo.png" />
+
+    <!-- Twitter/X card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="TRIO — Set of Three Arts" />
+    <meta
+      name="twitter:description"
+      content="A Mumbai-based media production and creative agency across Media & Events, Music & Sound, and Literary & Arts Fest."
+    />
+    <meta name="twitter:image" content="https://triosetofthreearts.com/images/logo/trio-logo.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,18 +37,25 @@
       href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
-    <!-- Netlify Identity: only needed so invite/password-reset email links
-         (which land here, on the root domain) redirect into /admin/ -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <script>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", (user) => {
-          if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
-            });
-          }
-        });
+
+    <!-- Structured data — helps Google understand this is an organization
+         (name, logo, contact) when it shows up in search results -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "TRIO — Set of Three Arts",
+        "url": "https://triosetofthreearts.com/",
+        "logo": "https://triosetofthreearts.com/images/logo/trio-logo.png",
+        "email": "triosetof3arts@gmail.com",
+        "telephone": "+91-75067-35354",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "2C/401 Harmony CHS, Patliputra Nagar, Oshiwara, New Link Road, Jogeshwari West",
+          "addressLocality": "Mumbai",
+          "postalCode": "400102",
+          "addressCountry": "IN"
+        }
       }
     </script>
   </head>

@@ -1,40 +1,12 @@
 // ============================================================================
 // TRIO — TEAM DATA
 // ----------------------------------------------------------------------------
-// To add a team member, copy an object below, give it a unique `id`, and add
-// a matching portrait URL in `data/images.js` under `teamImages[id]`.
+// Team members live as individual JSON files in /content/team/ — editable
+// via the /admin dashboard (name, role, bio, and photo all together).
 // ============================================================================
 
-export const team = [
-  {
-    id: "kashif-raza",
-    name: "Kashif Raza",
-    role: "Chief Patron",
-    discipline: "Custodian",
-    bio: "Chief Patron of TRIO, supporting the studio's work across music, word, and personality.",
-  },
-  {
-    id: "sheeba-lateef",
-    name: "Sheeba Lateef",
-    role: "Managing Director",
-    discipline: "Custodian",
-    bio: "Managing Director of TRIO, overseeing the studio's events and partnerships day to day.",
-  },
-  {
-    id: "altamash-abbas",
-    name: "Altamash Abbas",
-    role: "Chairman",
-    discipline: "Custodian",
-    bio: "Chairman of TRIO, guiding the studio's direction across its three disciplines.",
-  },
+const modules = import.meta.glob("../../content/team/*.json", { eager: true });
 
-  // Add more team members here as you bring people on — same shape,
-  // with a matching portrait added to teamImages in data/images.js:
-  // {
-  //   id: "person-slug",
-  //   name: "Full Name",
-  //   role: "Role / Title",
-  //   discipline: "Music" | "Film" | "Custodian" | etc,
-  //   bio: "One or two sentences.",
-  // },
-];
+export const team = Object.values(modules)
+  .map((mod) => mod.default)
+  .sort((a, b) => (a.order || 0) - (b.order || 0));

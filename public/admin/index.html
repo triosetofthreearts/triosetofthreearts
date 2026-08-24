@@ -4,24 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TRIO — Content Dashboard</title>
-    <!-- Netlify Identity, so team members can log in -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
-    <!-- Decap CMS (formerly Netlify CMS) -->
+    <!-- Decap CMS (formerly Netlify CMS), authenticated via DecapBridge
+         (see public/admin/config.yml — Netlify's own Git Gateway is
+         deprecated for new setups, so we use DecapBridge instead). -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-    <script>
-      // Redirects invite/recovery links that land on the root domain
-      // back into this admin page with the token intact.
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", (user) => {
-          if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
-            });
-          }
-        });
-      }
-    </script>
+    <!-- Live preview pane, styled to match the real site -->
+    <script src="/admin/preview-templates.js"></script>
   </body>
 </html>
