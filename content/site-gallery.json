@@ -1,13 +1,40 @@
 {
   "images": [
-    { "src": "/images/studio/studio_session_1.jpg", "caption": "" },
-    { "src": "/images/studio/studio_session_2.jpg", "caption": "" },
-    { "src": "/images/studio/studio_team_group.jpg", "caption": "" },
-    { "src": "/images/studio/studio_session_3.jpg", "caption": "" },
-    { "src": "/images/studio/studio_vocalist.jpg", "caption": "" },
-    { "src": "/images/studio/event_javed_akhtar.jpg", "caption": "With Javed Akhtar" },
-    { "src": "/images/studio/event_candid_1.jpg", "caption": "" },
-    { "src": "/images/events/sur-shabd-poster.jpg", "caption": "Sur, Shabd aur Shakhsiyat — Official Poster" },
-    { "src": "/images/updates/lovestruck-first-song.jpg", "caption": "Lovestruck — First Song" }
+    {
+      "src": "/images/studio/studio_session_1.jpg",
+      "caption": ""
+    },
+    {
+      "src": "/images/studio/studio_session_2.jpg",
+      "caption": ""
+    },
+    {
+      "src": "/images/studio/studio_team_group.jpg",
+      "caption": ""
+    },
+    {
+      "src": "/images/studio/studio_session_3.jpg",
+      "caption": ""
+    },
+    {
+      "src": "/images/studio/studio_vocalist.jpg",
+      "caption": ""
+    },
+    {
+      "src": "/images/studio/event_javed_akhtar.jpg",
+      "caption": "With Javed Akhtar"
+    },
+    {
+      "src": "/images/studio/event_candid_1.jpg",
+      "caption": ""
+    },
+    {
+      "src": "/images/events/sur-shabd-poster.jpg",
+      "caption": "Sur, Shabd aur Shakhsiyat — Official Poster"
+    },
+    {
+      "src": "/images/uploads/channels4_banner.jpg",
+      "caption": "Lovestruck — First Song"
+    }
   ]
 }
