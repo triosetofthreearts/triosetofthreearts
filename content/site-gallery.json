@@ -1,6 +1,9 @@
 {
   "images": [
     {
+      "src": "/images/uploads/1000023376.jpg"
+    },
+    {
       "src": "/images/studio/studio_session_1.jpg",
       "caption": ""
     },
@@ -35,9 +38,6 @@
     {
       "src": "/images/uploads/channels4_banner.jpg",
       "caption": "Lovestruck —  a timeless journey  with gazals"
-    },
-    {
-      "src": "/images/uploads/1000023376.jpg"
     }
   ]
 }
